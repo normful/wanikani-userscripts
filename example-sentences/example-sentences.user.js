@@ -135,7 +135,8 @@ function DisplayExampleSentences(known_vocab) {
       let kanji = GetVocabularyKanjiFromPage();
       for (let word of sentence.jpn) {
         if (word != kanji && !OnlyContainsKanaOrPunctuation(word) && known_vocab[word] === undefined) {
-          extra_class = 'example-sentence-unlearned-vocab';
+          // HACK: Don't add extra class for sentence containing unknown vocab so that all sentences are always shown, by default
+          // extra_class = 'example-sentence-unlearned-vocab';
           break;
         }
       }
